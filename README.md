@@ -12,7 +12,7 @@ create a new file called docker-compose.yml using the command below:
 touch docker-compose.yml
 
 IN docker-compose.yml:
-'''
+```
 
 version: '3.8'
 
@@ -54,7 +54,7 @@ services:
     depends_on:
       - php
       - database
-'''
+```
 	  
 	  
 
@@ -65,7 +65,7 @@ In the root directory, symfony_docker, create a directory called php. Then, in s
 
 
 In symfony_docker/php/Dockerfile, add:
-
+```
 
 FROM php:8.0-fpm
 
@@ -85,7 +85,7 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 RUN git config --global user.email "you@example.com" \ 
     && git config --global user.name "Your Name"
-    
+ ```   
     
 
 
@@ -102,7 +102,7 @@ We build the Nginx container, in the root of the project:
 
 
 Add the configuration below to nginx/default.conf:
-
+```
 server {
 
     listen 80;
@@ -135,7 +135,7 @@ server {
     }
     
 }
-
+```
 
 
 
