@@ -64,7 +64,8 @@ In the root directory, symfony_docker, create a directory called php. Then, in s
 
 
 In symfony_docker/php/Dockerfile, add:
-{
+
+
 FROM php:8.0-fpm
 
 RUN apt update \
@@ -84,7 +85,7 @@ RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 RUN git config --global user.email "you@example.com" \ 
     && git config --global user.name "Your Name"
     
-}
+    
 
 
 
