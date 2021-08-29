@@ -38,6 +38,7 @@ class TeamController extends AbstractController
     #[Route('/team/list', name: 'team_index', methods: ['GET'])]
     public function index(TeamPokemonRepository $teamPokemonRepository): Response
     {
+        /*
         //count pokemon from table Pokemon
         $countPokemon = $this->countPokemonTable();
         $api = new PokeApi;
@@ -58,7 +59,7 @@ class TeamController extends AbstractController
                 $em->persist($pokemon);
                 $em->flush();
             }
-        }
+        }*/
         return $this->render('team/index.html.twig', [
             'teams' => $teamPokemonRepository->findBy(array(),array('creationDate' => 'DESC')),
         ]);
