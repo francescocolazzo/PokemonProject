@@ -1,4 +1,5 @@
 # PokemonProject
+Prerequisites
 - Composer globally installed;
 - Docker Desktop;
 - The Symfony CLI tool;
