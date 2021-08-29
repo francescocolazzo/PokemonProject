@@ -62,6 +62,7 @@ In the root directory, symfony_docker, create a directory called php. Then, in s
 In symfony_docker/php/Dockerfile, add:
 
 FROM php:8.0-fpm
+
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
     && docker-php-ext-install intl opcache pdo pdo_mysql \
@@ -96,6 +97,7 @@ We build the Nginx container, in the root of the project:
 Add the configuration below to nginx/default.conf:
 
 server {
+
     listen 80;
     index index.php;
     server_name localhost;
@@ -124,6 +126,7 @@ server {
     location ~ \\.php$ {
         return 404;
     }
+    
 }
 
 
