@@ -12,6 +12,7 @@ create a new file called docker-compose.yml using the command below:
 touch docker-compose.yml
 
 IN docker-compose.yml:
+'''
 
 version: '3.8'
 
@@ -53,7 +54,7 @@ services:
     depends_on:
       - php
       - database
-
+'''
 	  
 	  
 
@@ -89,7 +90,7 @@ RUN git config --global user.email "you@example.com" \
 
 
 
-create the app directory in the root directory of the project, with the following command:
+Create the app directory in the root directory of the project, with the following command:
 - mkdir app
 
 
