@@ -4,17 +4,20 @@ Prerequisites
 - Docker Desktop;
 - The Symfony CLI tool;
 
-create a new directory named symfony_docker:
+Create a new directory named symfony_docker:
+```
 - mkdir symfony_docker
 - cd symfony_docker
+```
 
 Because the different containers that compose our application need to communicate, we will use Docker Compose to define them. In the root of the symfony_docker directory, 
 create a new file called docker-compose.yml using the command below:
+```
 touch docker-compose.yml
+```
 
 IN docker-compose.yml:
 ```
-
 version: '3.8'
 
 services:
@@ -58,16 +61,15 @@ services:
 ```
 	  
 	  
-
 We will build the PHP container from a Dockerfile.
-In the root directory, symfony_docker, create a directory called php. Then, in symfony_docker/php, create a file named Dockerfile.
+In the root directory, symfony_docker, create a directory called php. Then, in symfony_docker/php, create a file named Dockerfile:
+```
 - mkdir php
 - touch php/Dockerfile
-
+```
 
 In symfony_docker/php/Dockerfile, add:
 ```
-
 FROM php:8.0-fpm
 
 RUN apt update \
@@ -92,14 +94,14 @@ RUN git config --global user.email "you@example.com" \
 
 
 Create the app directory in the root directory of the project, with the following command:
+```
 - mkdir app
-
-
-
+```
 
 We build the Nginx container, in the root of the project:
+```
 - mkdir -p nginx/default.conf
-
+```
 
 
 Add the configuration below to nginx/default.conf:
@@ -139,20 +141,26 @@ server {
 ```
 
 
-
 Build containers:
+```
 - docker-compose up -d --build
-
+```
 
 In PHP CONTAINER CLI, let's add some development dependencies for the application, 
 for example Twig template engine will be required to render the front end:
+```
 - composer req doctrine twig
+``````
 
 
 
 Create a .env.local file from the existing .env file which Symfony generated during the creation of the project:
+```
 - cp .env .env.local
+```
 
-Finally, update the database parameters in .env.local to allow the application to connect to database container.
+Update the database parameters in .env.local to allow the application to connect to database container.
 Replace the current DATABASE_URL entry in the file with the version below:
+```
 - DATABASE_URL="mysql://root:secret@database:3306/symfony_docker?serverVersion=8.0"
+```
